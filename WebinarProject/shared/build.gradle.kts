@@ -1,4 +1,5 @@
-import org.jetbrains.kotlin.gradle.utils.loadPropertyFromResources
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -64,20 +65,15 @@ dependencies {
 }
 
 buildkonfig {
-    //TODO - Maybe change this to match project package name?
-    packageName = "com.myapplication"
+    packageName = "com.kmp.webinar"
     objectName = "ApiKeyConfig"
     exposeObjectWithName = "Config"
 
     defaultConfigs {
         buildConfigField(
-            //TODO - maybe import this?
-            com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING,
+            STRING,
             "WeatherApiKey",
-            "12345"
-
-            //TODO - this function does not exist
-            //getLocalProperty("WEATHER_API_KEY").toString()
+            gradleLocalProperties(project.rootDir).getProperty("WEATHER_API_KEY")
         )
     }
 }

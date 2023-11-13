@@ -1,6 +1,6 @@
 package network
 
-import com.myapplication.Config
+import com.kmp.webinar.Config
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
