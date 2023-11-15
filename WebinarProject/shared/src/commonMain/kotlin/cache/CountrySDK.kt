@@ -1,21 +1,34 @@
 package cache
 
+import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
 import country.Country
 import io.github.xxfast.kstore.KStore
 import io.github.xxfast.kstore.file.storeOf
 import network.CountryApi
+import location.getCountryCode
 
 class CountrySDK {
     private val cache: KStore<List<Country>> = storeOf(filePath = pathToCountryCache())
     private val api: CountryApi = CountryApi()
 
+    @NativeCoroutines
     @Throws(Exception::class)
-    suspend fun getLaunches(): List<Country> {
+    suspend fun getCountries(): List<Country> {
+        val countryCode = getCountryCode().getCountryCode()
+
+        val tempCountries = getSortedCountries().toMutableList()
+        val currentCountry = tempCountries.first { it.cca2 == countryCode }
+        tempCountries.remove(currentCountry)
+        tempCountries.add(0, currentCountry)
+        return tempCountries
+    }
+
+    private suspend fun getSortedCountries(): List<Country>{
         return cache.get()
-            ?: api.getAllCountries().also {
-                cache.delete()
-                cache.set(it)
-            }
+                ?: api.getAllCountries().also {
+                    cache.delete()
+                    cache.set(it)
+                }
     }
 }
 

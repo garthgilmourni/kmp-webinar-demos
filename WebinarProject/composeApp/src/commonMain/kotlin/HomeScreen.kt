@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -18,26 +19,19 @@ class HomeScreen() : Screen {
     @Composable
     override fun Content() {
         Surface {
-            var listCountries: MutableList<Country> by remember { mutableStateOf(mutableListOf()) }
-
-            val countryCode = getCountryCode().getCountryCode()
+            var listCountries: List<Country> by remember { mutableStateOf(mutableListOf()) }
 
             LaunchedEffect(Unit) {
-                val tempCountries =
-                    CountrySDK().getLaunches().sortedBy { it.name.common }.toMutableList()
-                val currentCountry = tempCountries.first { it.cca2 == countryCode }
-                tempCountries.remove(currentCountry)
-                tempCountries.add(0, currentCountry)
-                listCountries = tempCountries
+                listCountries = CountrySDK().getCountries()
             }
 
             Column {
                 LazyColumn() {
-                    items(items = listCountries) {
+                    itemsIndexed(items = listCountries) { index, item ->
                         CountryCard(
                             modifier = Modifier,
-                            country = it,
-                            currentCountry = it.cca2 == countryCode
+                            country = item,
+                            currentCountry = index == 0
                         )
                     }
                 }

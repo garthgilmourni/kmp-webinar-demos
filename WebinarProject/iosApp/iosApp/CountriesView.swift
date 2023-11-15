@@ -24,8 +24,8 @@ struct CountriesView: View {
         case .loading:
             return AnyView(Text("Loading...").multilineTextAlignment(.center))
         case .result(let countries):
-            return AnyView(List(countries) { country in
-                CardView(action: self.action, country: country)
+            return AnyView(List(countries.indices) { index in
+                CardView(isTop: index == 0, action: self.action, country: countries[index])
             })
         case .error(let description):
             return AnyView(Text(description).multilineTextAlignment(.center))
@@ -37,7 +37,7 @@ struct CountriesView: View {
 
         @Published var loadableCountries = LoadableCountry.loading
 
-        let sdk: CountryApi = CountryApi()
+        let sdk: CountrySDK = CountrySDK()
 
         init() {
             self.loadCountries(forceReload: false)
@@ -47,7 +47,7 @@ struct CountriesView: View {
             Task {
                 do {
                     self.loadableCountries = .loading
-                    let countries = try await asyncFunction(for: sdk.getAllCountries())
+                    let countries = try await asyncFunction(for: sdk.getCountries())
                     self.loadableCountries = .result(countries)
                 } catch {
                     self.loadableCountries = .error(error.localizedDescription)

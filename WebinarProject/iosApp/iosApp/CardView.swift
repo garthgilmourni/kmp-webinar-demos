@@ -7,6 +7,8 @@ import KMPNativeCoroutinesAsync
 struct CardView: View {
 
     @StateObject var viewModel: ViewModel = ViewModel()
+    
+    let isTop: Bool
 
     let action: (String, Weather) -> ()
 
@@ -15,8 +17,8 @@ struct CardView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
-                    .fill(.white)
-                    .shadow(radius: 10)
+                .fill(isTop ? .gray : .white)
+                .shadow(radius: 10)
             VStack {
                 HStack {
                     KFImage
