@@ -20,18 +20,7 @@ struct CardView: View {
                 .fill(isTop ? .gray : .white)
                 .shadow(radius: 10)
             VStack {
-                HStack(alignment: .center, spacing: 0) {
-                    KFImage
-                            .url(URL(string: country.flags.png))
-                            .setProcessor(DownsamplingImageProcessor(size: CGSizeMake(75.0, 75.0)))
-                            .frame(width: 75, alignment: .top)
-                            .border(Color.gray)
-                            .padding(15)
-                    VStack(alignment: .leading) {
-                        Text(country.name.common).font(.body).fontWeight(.bold)
-                        Text(country.name.official).font(.caption)
-                    }.frame(alignment: .bottom)
-                }.frame(maxWidth: .infinity, alignment: .leading)
+                CountryDetailsView(country: country)
 
                 ForEach(country.capital, id: \.self) { capital in
                     Button("\(capital) weather") {
