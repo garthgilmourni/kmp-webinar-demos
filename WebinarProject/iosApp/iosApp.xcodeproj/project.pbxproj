@@ -14,6 +14,10 @@
 		66A0A3182B03A39C009CCEA0 /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 66A0A3132B03A185009CCEA0 /* KMPNativeCoroutinesCore */; };
 		66A0A31C2B03B881009CCEA0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 66A0A31B2B03B881009CCEA0 /* Kingfisher */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		CD8CE06E925EA5642472154A /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CE74B24CA25DA6A5AD6CA /* CountriesView.swift */; };
+		CD8CEB6587CF28E5657BF413 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CE2355FF52F4E7682E01C /* WeatherView.swift */; };
+		CD8CEDB7ED0275B4FA08E188 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CE2A77EE4D0EFE6B6713E /* CardView.swift */; };
+		CD8CEEF65F13FA453F67B091 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CE1EE37BC774CF22A2F23 /* Country.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		CD8CE1EE37BC774CF22A2F23 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		CD8CE2355FF52F4E7682E01C /* WeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		CD8CE2A77EE4D0EFE6B6713E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		CD8CE74B24CA25DA6A5AD6CA /* CountriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 				7555FF7C242A565900829871 /* Products */,
 				42799AB246E5F90AF97AA0EF /* Frameworks */,
 				CD8CEAEC460E79EE205CEB47 /* xcuserdata */,
+				CD8CEE51DB421598B55EDB4A /* xcschemes */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +91,10 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
+				CD8CE2A77EE4D0EFE6B6713E /* CardView.swift */,
+				CD8CE74B24CA25DA6A5AD6CA /* CountriesView.swift */,
+				CD8CE2355FF52F4E7682E01C /* WeatherView.swift */,
+				CD8CE1EE37BC774CF22A2F23 /* Country.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -116,6 +129,14 @@
 				CD8CE1731EFAFED2D52943AC /* xcschemes */,
 			);
 			path = ggilmour.xcuserdatad;
+			sourceTree = "<group>";
+		};
+		CD8CEE51DB421598B55EDB4A /* xcschemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = xcschemes;
+			path = iosApp.xcodeproj/project.xcworkspace/xcuserdata/ggilmour.xcuserdatad/xcschemes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +243,10 @@
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				CD8CEDB7ED0275B4FA08E188 /* CardView.swift in Sources */,
+				CD8CE06E925EA5642472154A /* CountriesView.swift in Sources */,
+				CD8CEB6587CF28E5657BF413 /* WeatherView.swift in Sources */,
+				CD8CEEF65F13FA453F67B091 /* Country.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
