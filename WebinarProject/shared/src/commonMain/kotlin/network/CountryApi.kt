@@ -1,5 +1,6 @@
 package network
 
+import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
 import country.Country
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -21,7 +22,8 @@ class CountryApi {
         }
     }
 
+    @NativeCoroutines
     suspend fun getAllCountries(): List<Country> {
-        return httpClient.get("https://restcountries.com/v3.1/all").body()
+        return httpClient.get("https://restcountries.com/v3.1/all").body<List<Country>>().sortedBy { it.name.common }
     }
 }

@@ -19,6 +19,7 @@ import kotlinx.datetime.toLocalDateTime
 import kotlinx.serialization.json.Json
 import weather.Weather
 import kotlin.time.Duration.Companion.seconds
+import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
 
 class WeatherApi() {
     private val httpClient = HttpClient {
@@ -32,6 +33,7 @@ class WeatherApi() {
         }
     }
 
+    @NativeCoroutines
     suspend fun getWeather(lat: Double, long: Double):Weather {
         return httpClient.get("https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${Config.WeatherApiKey}&units=metric")
             .body()

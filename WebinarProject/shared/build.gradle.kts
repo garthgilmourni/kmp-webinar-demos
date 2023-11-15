@@ -8,6 +8,8 @@ plugins {
 
     //TODO - find out why "0.13.3" will not work
     id("com.codingfeline.buildkonfig") version "0.15.0"
+    id("com.google.devtools.ksp") version "1.9.20-1.0.14"
+    id("com.rickclephas.kmp.nativecoroutines") version "1.0.0-ALPHA-20"
 }
 
 kotlin {
@@ -31,6 +33,10 @@ kotlin {
     }
     
     sourceSets {
+        all {
+            languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
+        }
+
         commonMain.dependencies {
             // put your Multiplatform dependencies here
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")

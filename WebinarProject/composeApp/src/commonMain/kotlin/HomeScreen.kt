@@ -4,7 +4,6 @@ import androidx.compose.runtime.*
 import country.Country
 import location.getCountryCode
 import cache.CountrySDK
-import time.TimeApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
@@ -32,10 +31,7 @@ class HomeScreen() : Screen {
                 listCountries = tempCountries
             }
 
-            val time = remember { TimeApi().actualTime }.collectAsState()
-
             Column {
-                Text(modifier = Modifier.align(CenterHorizontally).padding(8.dp), text = "Local time: ${time.value}", style = MaterialTheme.typography.h4)
                 LazyColumn() {
                     items(items = listCountries) {
                         CountryCard(
