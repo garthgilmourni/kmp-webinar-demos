@@ -23,10 +23,8 @@ kotlin {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
             
-           
-            api("io.github.qdsfdhvh:image-loader:1.6.3")
+            implementation("io.coil-kt:coil-compose:2.5.0")
             implementation("io.ktor:ktor-client-android:2.3.3")
-            implementation("cafe.adriel.voyager:voyager-navigator:1.0.0-rc05")
         }
         commonMain.dependencies {
             implementation(projects.shared)
@@ -35,6 +33,8 @@ kotlin {
             implementation(compose.material)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
+
+            implementation("cafe.adriel.voyager:voyager-navigator:1.0.0-rc05")
         }
     }
 }

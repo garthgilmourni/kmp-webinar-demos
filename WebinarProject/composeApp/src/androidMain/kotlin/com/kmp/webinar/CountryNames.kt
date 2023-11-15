@@ -1,3 +1,5 @@
+package com.kmp.webinar
+
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.Column

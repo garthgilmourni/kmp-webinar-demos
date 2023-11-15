@@ -1,3 +1,5 @@
+package com.kmp.webinar
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding

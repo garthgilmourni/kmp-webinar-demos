@@ -1,14 +1,15 @@
+package com.kmp.webinar
+
 import androidx.compose.runtime.*
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.seiko.imageloader.rememberImagePainter
+import coil.compose.AsyncImage
 import network.WeatherApi
 import weather.Weather
 import weather.celsiusToFahrenheit
@@ -35,11 +36,9 @@ fun WeatherCard(modifier: Modifier, cityName: String, lat: Double, long: Double)
                     text = cityName,
                     style = MaterialTheme.typography.h4
                 )
-                val painterResource =
-                    rememberImagePainter("https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png")
-                Image(
+                AsyncImage(
                     modifier = Modifier.width(128.dp).height(128.dp).align(CenterHorizontally),
-                    painter = painterResource,
+                    model = "https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png",
                     contentDescription = weather.weather[0].description,
                     contentScale = ContentScale.Fit
                 )

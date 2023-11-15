@@ -1,3 +1,5 @@
+package com.kmp.webinar
+
 import cafe.adriel.voyager.core.screen.Screen
 import androidx.compose.runtime.*
 import androidx.compose.material.Surface
