@@ -4,11 +4,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.CurrentScreen
 import cafe.adriel.voyager.navigator.Navigator
@@ -22,7 +25,11 @@ fun App() {
         Navigator(HomeScreen()) { navigator ->
             Scaffold(topBar = {
                 if (navigator.canPop)
-                    Button(modifier = Modifier.padding(4.dp).width(48.dp).height(48.dp), onClick = {
+                    Button(shape = RoundedCornerShape(20.dp),
+                           colors = ButtonDefaults.outlinedButtonColors(
+                               contentColor = Color.Black
+                           ),
+                           modifier = Modifier.padding(4.dp).width(48.dp).height(48.dp), onClick = {
                         navigator.pop()
                     }) {
                         val painterResource = painterResource("back.xml")
