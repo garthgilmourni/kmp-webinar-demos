@@ -40,10 +40,10 @@ struct CountriesView: View {
         let sdk: CountrySDK = CountrySDK()
 
         init() {
-            self.loadCountries(forceReload: false)
+            self.loadCountries()
         }
 
-        func loadCountries(forceReload: Bool) {
+        func loadCountries() {
             Task {
                 do {
                     self.loadableCountries = .loading
