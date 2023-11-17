@@ -26,7 +26,6 @@ class CountrySDK {
     private suspend fun getSortedCountries(): List<Country>{
         return cache.get()
                 ?: api.getAllCountries().also {
-                    cache.delete()
                     cache.set(it)
                 }
     }
