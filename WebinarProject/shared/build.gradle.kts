@@ -50,6 +50,7 @@ kotlin {
 
         androidMain.dependencies {
             implementation("androidx.startup:startup-runtime:1.2.0-alpha02")
+            implementation("io.ktor:ktor-client-android:2.3.3")
         }
         
         iosMain.dependencies {

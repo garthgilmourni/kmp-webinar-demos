@@ -24,7 +24,6 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             
             implementation("io.coil-kt:coil-compose:2.5.0")
-            implementation("io.ktor:ktor-client-android:2.3.3")
         }
         commonMain.dependencies {
             implementation(projects.shared)
